@@ -1,0 +1,103 @@
+<?php
+session_start();
+
+$message = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    // Password validation
+    $pattern = "/^(?=.*[A-Z])(?=.*[0-9])(?=.*[\W]).+$/";
+
+    if (!preg_match($pattern, $password)) {
+        $message = "❌ Password must contain uppercase, number, and special character!";
+    } else {
+        // Demo login
+        if ($email == "admin@gmail.com" && $password == "Admin@123") {
+            $_SESSION['user'] = $email;
+
+            echo "<script>
+                alert('✅ Welcome to FutureTrack!');
+                window.location.href='index.html';
+            </script>";
+            exit();
+        } else {
+            $message = "❌ Invalid email or password!";
+        }
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FutureTrack - Login</title>
+
+<style>
+body { font-family: Arial; background:#f4f6f9; }
+
+.container {
+  width: 400px;
+  margin: 80px auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+h2 { text-align:center; color:#27ae60; }
+
+label { display:block; margin-top:15px; font-weight:bold; }
+
+input {
+  width:100%;
+  padding:10px;
+  margin-top:5px;
+  border:1px solid #ccc;
+  border-radius:5px;
+}
+
+.btn {
+  margin-top:20px;
+  width:100%;
+  padding:12px;
+  background:#27ae60;
+  color:white;
+  border:none;
+  border-radius:5px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.btn:hover { background:#2c3e50; }
+
+.error { color:red; margin-top:10px; font-size:14px; }
+</style>
+
+</head>
+<body>
+
+<div class="container">
+  <h2>Login</h2>
+
+  <form method="post">
+    <label>Email</label>
+    <input type="email" name="email" required>
+
+    <label>Password</label>
+    <input type="password" name="password" required>
+
+    <p style="color:red; font-size:14px;">
+      Password must include: 1 uppercase, 1 number, 1 special character
+    </p>
+
+    <button type="submit" class="btn">Login</button>
+  </form>
+
+  <p class="error"><?php echo $message; ?></p>
+</div>
+
+</body>
+</html>
