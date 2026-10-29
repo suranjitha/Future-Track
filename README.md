@@ -41,9 +41,7 @@ FutureTrack/
 2. Start Apache. If your project uses a database, start MySQL as well.
 3. Place the project folder inside the `htdocs` directory.
 4. Open your browser.
-5. Visit:
-
-   `http://localhost/FutureTrack/`
+5. Visit:     `http://localhost/FutureTrack/`
 
 ## Purpose
 
