@@ -59,8 +59,3 @@ The purpose of FutureTrack is to provide a simple platform that supports career 
 
 **Suranjitha S**
 
-BCA Student
-
-## License
-
-This project is developed for educational purposes.
