@@ -53,7 +53,6 @@ The purpose of FutureTrack is to provide a simple platform that supports career 
 - Improve the user interface and responsiveness.
 - Add personalized career recommendations.
 - Enhance resume-building features.
-- Improve user account management.
 
 ## Author
 
